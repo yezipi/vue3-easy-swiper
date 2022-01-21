@@ -265,11 +265,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-ul, li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
 .yzp-swiper-wrap .yzp-swiper-btn > div {
   display: flex;
   align-items: center;
@@ -341,6 +336,9 @@ ul, li {
   width: 100%;
   display: flex;
   position: relative;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .yzp-swiper-wrap .yzp-swiper-list .yzp-swiper-item {
   flex-shrink: 0;
@@ -408,6 +406,9 @@ ul, li {
 .yzp-swiper-wrap .yzp-swiper-dots .yzp-swiper-dots-list {
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .yzp-swiper-wrap .yzp-swiper-dots .yzp-swiper-dots-item {
   height: 5px;

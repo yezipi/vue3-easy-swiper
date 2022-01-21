@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { EasySwiper } from '../packages'
+import EasySwiper from '../lib'
 
 const list = [
   {

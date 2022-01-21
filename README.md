@@ -1,8 +1,7 @@
 ## vue3-easy-swiper
 
 *   基于 Vue3.0 开发
-*   目前支持 无缝衔接自动轮播、无限轮播。
-*   没有引入第三方库，原生 js 封装。
+*   轻量、简易，支持无缝轮播
 
 ## Install
 
@@ -12,13 +11,12 @@ npm i vue3-easy-swiper --save
 
 ## [github地址](https://github.com/yezipi/vue3-easy-swiper)
 
-## demo
-
-![效果](http://yangpin.shop/file20220139e6bd4047bf7200.png)
-
 ## Usage
 
 ```javascript
+import EasySwiper from 'vue3-easy-swiper'
+import 'vue3-easy-swiper/dist/style'
+
 const list = [
   {
     url: 'http://pic1.win4000.com/wallpaper/3/57ac4130c083a_270_185.jpg',

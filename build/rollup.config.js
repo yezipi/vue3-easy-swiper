@@ -1,58 +1,37 @@
-import nodeResolve from '@rollup/plugin-node-resolve'; // 告诉 Rollup 如何查找外部模块
-import typescript from 'rollup-plugin-typescript2';
-import vue from 'rollup-plugin-vue'; // 处理vue文件
-import { readdirSync } from 'fs'; // 写文件
-import { resolve } from 'path';
+// 请先安装 rollup-plugin-esbuild rollup-plugin-vue rollup-plugin-scss sass rollup-plugin-terser
+// 为了保证版本一致，请复制我的 package.json 到你的项目，并把 name 改成你的库名
+import esbuild from 'rollup-plugin-esbuild'
+import vue from 'rollup-plugin-vue'
+// import scss from 'rollup-plugin-scss'
+// import dartSass from 'sass';
+import { terser } from "rollup-plugin-terser"
+import postcss from "rollup-plugin-postcss";
 
-const input = resolve(__dirname, '../packages'); // 入口文件
-const output = resolve(__dirname, '../lib'); // 输出文件
-const config = readdirSync(input)
-  .filter(name => !['theme-default', 'index.ts', 'types.ts'].includes(name))
-  .map(name => ({
-    input: `${input}/${name}/index.ts`,
-    external: ['vue'],
-    plugins: [
-      nodeResolve(),
-      vue(),
-      typescript({
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false
-          },
-          exclude: ['node_modules', 'examples', 'tests']
-        },
-        abortOnError: false,
-        clean: true
-      })
-    ],
-    output: {
-      name: 'index',
-      file: `${output}/${name}/index.js`,
-      format: 'es'
-    }
-  }));
-config.push({
-  input: `${input}/index.ts`,
-  external: ['vue'],
+export default {
+  input: 'packages/index.ts',
+  output: {
+    globals: {
+      vue: 'Vue'
+    },
+    name: 'Vue3EasySwiper',
+    file: 'dist/lib/index.js',
+    format: 'umd',
+    plugins: [terser()]
+  },
   plugins: [
-    nodeResolve(),
-    vue(),
-    typescript({
-      tsconfigOverride: {
-        compilerOptions: {
-          declaration: false
-        },
-        exclude: ['node_modules', 'examples', 'tests']
-      },
-      abortOnError: false,
-      clean: true
+    // scss({ include: /\.scss$/, sass: dartSass }),
+    postcss(),
+    esbuild({
+      include: /\.[jt]s$/,
+      minify: process.env.NODE_ENV === 'production',
+      target: 'es2015'
+    }),
+    vue({
+      include: /\.vue$/,
+      // 把单文件组件中的样式，插入到html中的style标签
+        css: true,
+        // 把组件转换成 render 函数
+        compileTemplate: true,
     })
   ],
-  output: {
-    name: 'index',
-    file: `${output}/index.js`,
-    format: 'es'
-  }
-});
-
-export default config;
+}

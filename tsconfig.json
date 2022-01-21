@@ -11,5 +11,16 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["examples/**/*.ts", "examples/**/*.d.ts", "examples/**/*.tsx", "examples/**/*.vue"]
+  "include": [
+    "examples/**/*.ts",
+    "examples/**/*.vue",
+    "mobile/**/*.ts",
+    "mobile/**/*.vue",
+    "tests/**/*.ts",
+    "packages/**/*.ts",
+    "packages/**/*.vue",
+    "typings/shims-vue.d.ts",
+    "mobile/views/doc/button/data.js"
+  ],
+  "exclude": ["node_modules"]
 }

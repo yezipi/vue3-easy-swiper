@@ -1,15 +1,35 @@
 {
   "name": "vue3-easy-swiper",
-  "version": "1.0.1",
+  "author": {
+    "name": "yezipi"
+  },
+  "files": [
+    "dist", "lib"
+  ],
+  "description": "a easy vue3 loop swiper plugin",
+  "version": "1.0.7",
+  "module": "./dist/index.es.ts",
+  "main": "./dist/index.umd.ts",
+  "typings": "./lib/typings/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.ts",
+      "require": "./dist/index.umd.ts"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yezipi/vue3-easy-swiper"
+  },
+  "keywords": ["swiper", "vue3"],
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:theme && npm run build:package && npm run build:package:dts",
-    "build:docs": "vite build",
-    "preview": "vite preview",
-    "build:theme": "gulp build -f build/gulpfile.prod.js",
-    "build:package": "rollup -c build/rollup.config.js",
-    "build:package:dts": "rollup -c build/rollup.config.dts.js",
-    "test:unit": "jest -c=jest.config.js --detectOpenHandles"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.2.25"
