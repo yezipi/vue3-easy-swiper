@@ -27,7 +27,7 @@ const list = [
     title: '标题2'
   },
 ]
-<easy-swiper :list="list"></easy-swiper>
+<easy-swiper :list="list" style="width: 500px;height:300px"></easy-swiper>
 ```
 
 ## 全局

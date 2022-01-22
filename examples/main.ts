@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from '../examples/App.vue'
-import Vue3EasySwiper from 'vue3-easy-swiper'
+import Vue3EasySwiper from '../lib'
 import 'vue3-easy-swiper/dist/style.css'
 
 const app = createApp(App)
