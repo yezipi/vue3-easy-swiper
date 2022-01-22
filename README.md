@@ -14,7 +14,7 @@ npm i vue3-easy-swiper --save
 ## Usage 组件内
 
 ```javascript
-import { EasySwiper } from 'vue3-easy-swiper'
+import { Vue3EasySwiper } from 'vue3-easy-swiper'
 import 'vue3-easy-swiper/dist/style'
 
 const list = [
@@ -27,7 +27,7 @@ const list = [
     title: '标题2'
   },
 ]
-<easy-swiper :list="list" style="width: 500px;height:300px"></easy-swiper>
+<vue3-easy-swiper :list="list" style="width: 500px;height:300px"></vue3-easy-swiper>
 ```
 
 ## 全局
