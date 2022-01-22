@@ -1,9 +1,9 @@
-import EasySwiper from '../index.vue'
+import Vue3EasySwiper from '../index.vue'
 import { globalEasySwiper } from '../index'
 
-export interface vueEasySwiperGlobal {
+export interface EasySwiperGlobal {
   install: (app: any, ...options: any[]) => any,
-  EasySwiper: typeof EasySwiper
+  Vue3EasySwiper: typeof Vue3EasySwiper
 }
 
 declare global {
@@ -13,7 +13,7 @@ declare global {
 }
 
 export {
-  EasySwiper
+  Vue3EasySwiper
 }
 
 export default globalEasySwiper

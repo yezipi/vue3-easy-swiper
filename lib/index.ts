@@ -1,24 +1,24 @@
-import EasySwiper from './index.vue'
-import { vueEasySwiperGlobal } from './typings/index'
+import Vue3EasySwiper from './index.vue'
+import { EasySwiperGlobal } from './typings/index'
 // type SFCWithInstall<T> = T & { install(app: App): void }
 
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-  (window as any).Vue.createApp({}).component('easy-swiper', EasySwiper);
+  (window as any).Vue.createApp({}).component('vue3-easy-swiper', Vue3EasySwiper);
 }
 
 // 安装
 const install = (app: any) => {
-  app.component('asy-swiper', EasySwiper)
+  app.component('vue3-easy-swiper', Vue3EasySwiper)
 }
 
-const globalEasySwiper: vueEasySwiperGlobal = {
+export const globalEasySwiper: EasySwiperGlobal = {
   install,
-  EasySwiper,
+  Vue3EasySwiper,
 }
 
 export {
-  EasySwiper,
+  Vue3EasySwiper,
 }
 
 // const V3EasySwiper: SFCWithInstall<typeof EasySwiper> = EasySwiper

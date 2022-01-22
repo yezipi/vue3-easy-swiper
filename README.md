@@ -11,10 +11,10 @@ npm i vue3-easy-swiper --save
 
 ## [github地址](https://github.com/yezipi/vue3-easy-swiper)
 
-## Usage
+## Usage 组件内
 
 ```javascript
-import EasySwiper from 'vue3-easy-swiper'
+import { EasySwiper } from 'vue3-easy-swiper'
 import 'vue3-easy-swiper/dist/style'
 
 const list = [
@@ -28,6 +28,19 @@ const list = [
   },
 ]
 <easy-swiper :list="list"></easy-swiper>
+```
+
+## 全局
+
+```javascript
+import { createApp } from 'vue'
+import App from '../examples/App.vue'
+import Vue3EasySwiper from 'vue3-easy-swiper'
+import 'vue3-easy-swiper/dist/style.css'
+
+const app = createApp(App)
+app.use(Vue3EasySwiper)
+app.mount('#app')
 ```
 
 ## API

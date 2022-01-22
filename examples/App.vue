@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import EasySwiper from '../lib'
+// import { Vue3EasySwiper } from '../lib'
+// import { vueEasySwiperGlobal } from 'vue3-easy-swiper'
 
 const list = [
   {
@@ -23,7 +24,7 @@ const list = [
 
 <template>
   <div class="easy-swiper-demo">
-    <easy-swiper :list="list"></easy-swiper>
+    <vue3-easy-swiper :list="list"></vue3-easy-swiper>
   </div>
 </template>
 

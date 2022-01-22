@@ -1,6 +1,8 @@
 
 <!-- 轮播图组件 2022-01-15 yzp -->
 <script lang="ts" setup>
+import { ref, reactive, onMounted, watch, computed } from 'vue'
+
 interface SwiperItemConfig {
   title: string,
   url: string,
@@ -18,8 +20,6 @@ interface Props {
   showDots?: boolean,
   showArrow?: boolean,
 }
-
-import { ref, reactive, onMounted, watch, computed } from 'vue'
 
 const props = withDefaults(defineProps<Props>(), {
 

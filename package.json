@@ -4,35 +4,29 @@
     "name": "yezipi"
   },
   "files": [
-    "dist", "lib"
+    "dist",
+    "lib"
   ],
   "description": "a easy vue3 loop swiper plugin",
-  "version": "1.0.7",
-  "module": "./dist/index.es.ts",
-  "main": "./dist/index.umd.ts",
+  "version": "1.1.5",
+  "main": "./dist/index.es.js",
   "typings": "./lib/typings/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.ts",
-      "require": "./dist/index.umd.ts"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yezipi/vue3-easy-swiper"
   },
-  "keywords": ["swiper", "vue3"],
+  "keywords": [
+    "swiper",
+    "vue3"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue3-easy-swiper": "^1.1.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",

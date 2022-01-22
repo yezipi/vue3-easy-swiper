@@ -217,15 +217,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-b1df70c4"]]);
+var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-3eeeb4e4"]]);
 if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.createApp({}).component("easy-swiper", EasySwiper);
+  window.Vue.createApp({}).component("vue3-easy-swiper", Vue3EasySwiper);
 }
 const install = (app) => {
-  app.component("asy-swiper", EasySwiper);
+  app.component("vue3-easy-swiper", Vue3EasySwiper);
 };
 const globalEasySwiper = {
   install,
-  EasySwiper
+  Vue3EasySwiper
 };
-export { EasySwiper, globalEasySwiper as default };
+export { Vue3EasySwiper, globalEasySwiper as default, globalEasySwiper };
