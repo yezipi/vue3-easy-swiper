@@ -243,14 +243,14 @@ onMounted(() => {
     <!--end swiper btn-->
 
     <!--swiper title-->
-    <div v-if="showTitle" class="yzp-swiper-text">
+    <div v-if="showTitle && !showTitle" class="yzp-swiper-text">
       <span class="yzp-swiper-title">{{ list[swiperConfig.index].title || '-' }}</span>
       <span class="yzp-swiper-index">{{ swiperConfig.index + 1 }} / {{ list.length }}</span>
     </div>
     <!--end swiper title-->
 
     <!--swiper dots-->
-    <div v-if="showDots && !showTitle" class="yzp-swiper-dots">
+    <div v-if="showDots" class="yzp-swiper-dots">
       <ul class="yzp-swiper-dots-list">
         <li
           v-for="(dot, i) in list"

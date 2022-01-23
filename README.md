@@ -1,6 +1,6 @@
 ## vue3-easy-swiper
 
-*   基于 Vue3.0 开发
+*   基于 Vue3.0 + ts 开发
 *   轻量、简易，支持无缝轮播
 
 ## Install
@@ -9,14 +9,19 @@
 npm i vue3-easy-swiper --save
 ```
 
-## [github地址](https://github.com/yezipi/vue3-easy-swiper)
+## demo
+[![](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-06.gif)]
+[![](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-46.gif)]
 
-## Usage 组件内
+## [github](https://github.com/yezipi/vue3-easy-swiper)
+## [my blog](https://yezipi.net)
+## in components
 
 ```javascript
 import { Vue3EasySwiper } from 'vue3-easy-swiper'
 import 'vue3-easy-swiper/dist/style'
 
+// url and title must is required
 const list = [
   {
     url: 'http://pic1.win4000.com/wallpaper/3/57ac4130c083a_270_185.jpg',
@@ -30,7 +35,7 @@ const list = [
 <vue3-easy-swiper :list="list" style="width: 500px;height:300px"></vue3-easy-swiper>
 ```
 
-## 全局
+## in App.vue
 
 ```javascript
 import { createApp } from 'vue'
@@ -43,7 +48,7 @@ app.use(Vue3EasySwiper)
 app.mount('#app')
 ```
 
-## API
+## props
 
 | 属性          | 说明                     | 默认 |
 | ------------- | ------------------------ | ---- |
@@ -56,16 +61,17 @@ app.mount('#app')
 | showArrow | 是否显示轮播左右箭头     | true |
 | direction | 滚动方向, prev：往右滚动，next：往左滚动    | next |
 
-## 事件
+## enevts
+| 事件名称          | 说明                     | 返回值 |
+| ------------- | ------------------------ | ---- |
+| change      | 滚动完成后的回调 | 当前索引index |
+| click      | 每个轮播图上的点击事件 | 当前点击项 |
 
-```
-change 事件 滚动完成后的回调，返回索引
-click  事件 每个轮播图上的事件
-```
+## slot
+| 插槽名称          | 说明                     | 返回值 |
+| ------------- | ------------------------ | ---- |
+| swiperItem      | 在每一项里面的内容 | 返回item |
+| swiperCustomButton      | 自定义按钮，会覆盖默认按钮，也可以说是循环内容之外的额外内容 | 无 |
+| swiperLeftButton      | 左边自定义按钮 | 无 |
+| swiperRightButton      |右边自定义按钮 | 无 |
 
-## 插槽
-
-*   swiperItem  在每一项里面的内容
-*   swiperCustomButton 自定义按钮，会覆盖默认按钮，也可以说是循环内容之外的额外内容
-*   swiperLeftButton 左边自定义按钮
-*   swiperRightButton 右边自定义按钮
