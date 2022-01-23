@@ -10,8 +10,8 @@ npm i vue3-easy-swiper --save
 ```
 
 ## demo
-[![](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-06.gif)]
-[![](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-46.gif)]
+![with dots](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-06.gif)
+![with title](https://yezipi.oss-cn-beijing.aliyuncs.com/2022-01-23_11-20-46.gif)
 
 ## [github](https://github.com/yezipi/vue3-easy-swiper)
 ## [my blog](https://yezipi.net)
@@ -35,7 +35,7 @@ const list = [
 <vue3-easy-swiper :list="list" style="width: 500px;height:300px"></vue3-easy-swiper>
 ```
 
-## in App.vue
+## in main.ts
 
 ```javascript
 import { createApp } from 'vue'

@@ -199,7 +199,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ], 2)
         ])) : createCommentVNode("", true),
         renderSlot(_ctx.$slots, "swiperCustomButton", {}, void 0, true),
-        __props.showTitle && !__props.showTitle ? (openBlock(), createElementBlock("div", _hoisted_5, [
+        __props.showTitle && !__props.showDots ? (openBlock(), createElementBlock("div", _hoisted_5, [
           createElementVNode("span", _hoisted_6, toDisplayString(__props.list[unref(swiperConfig).index].title || "-"), 1),
           createElementVNode("span", _hoisted_7, toDisplayString(unref(swiperConfig).index + 1) + " / " + toDisplayString(__props.list.length), 1)
         ])) : createCommentVNode("", true),
@@ -217,7 +217,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-8387fc50"]]);
+var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-520f46f2"]]);
 if (typeof window !== "undefined" && window.Vue) {
   window.Vue.createApp({}).component("vue3-easy-swiper", Vue3EasySwiper);
 }
