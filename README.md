@@ -32,7 +32,11 @@ const list = [
     title: '标题2'
   },
 ]
-<vue3-easy-swiper :list="list" style="width: 500px;height:300px"></vue3-easy-swiper>
+<vue3-easy-swiper :list="list" style="width: 500px;height:300px">
+  <template #swiperItem="{ item }">
+    <img :src="item.url" style="width: 100%;height: 100%;" />
+  </template>
+</vue3-easy-swiper>
 ```
 
 ## in main.ts

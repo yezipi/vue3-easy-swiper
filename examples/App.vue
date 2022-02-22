@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-// import { Vue3EasySwiper } from '../lib'
+import Vue3EasySwiper from '../lib/index.vue'
 // import { vueEasySwiperGlobal } from 'vue3-easy-swiper'
 
 const list = [
@@ -24,7 +24,11 @@ const list = [
 
 <template>
   <div class="easy-swiper-demo">
-    <vue3-easy-swiper :list="list"></vue3-easy-swiper>
+    <vue3-easy-swiper :list="list" style="width: 500px;height:300px">
+      <template #swiperItem="{ item }">
+        <img :src="item.url" style="width: 100%;height: 100%;" />
+      </template>
+    </vue3-easy-swiper>
   </div>
 </template>
 
@@ -34,9 +38,5 @@ const list = [
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.easy-swiper-demo {
-  width: 500px;
-  height: 300px;
 }
 </style>

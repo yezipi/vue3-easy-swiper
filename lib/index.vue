@@ -4,8 +4,8 @@
 import { ref, reactive, onMounted, watch, computed } from 'vue'
 
 interface SwiperItemConfig {
-  title: string,
-  url: string,
+  title?: string,
+  url?: string,
   id?: string,
   [x: string]: any,
 }
@@ -204,10 +204,9 @@ onMounted(() => {
       class="yzp-swiper-list"
     >
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
-        <div
-          class="yzp-swiper-link"
-          :style="{ background: `url(${list[list.length - 1].url}) no-repeat center` }"
-        ></div>
+        <div class="yzp-swiper-link">
+          <slot name="swiperItem" :item="list[list.length -1]"></slot>
+        </div>
       </li>
       <li
         v-for="(item, index) in list"
@@ -215,15 +214,14 @@ onMounted(() => {
         :key="index"
         class="yzp-swiper-item"
       >
-        <div class="yzp-swiper-link" :style="{ background: `url(${item.url}) no-repeat center` }" @click="onItemClick(item)">
+        <div class="yzp-swiper-link" @click="onItemClick(item)">
           <slot name="swiperItem" :item="item"></slot>
         </div>
       </li>
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
-        <div
-          class="yzp-swiper-link"
-          :style="{ background: `url(${list[0].url}) no-repeat center` }"
-        ></div>
+        <div class="yzp-swiper-link">
+          <slot name="swiperItem" :item="list[0]"></slot>
+        </div>
       </li>
     </ul>
     <!--swiper btn-->
