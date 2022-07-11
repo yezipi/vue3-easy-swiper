@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, computed, watch, onMounted, openBlock, createElementBlock, createElementVNode, normalizeStyle, unref, withDirectives, vShow, Fragment, renderList, renderSlot, normalizeClass, createCommentVNode, toDisplayString } from "vue";
+import { defineComponent, ref, reactive, computed, watch, onMounted, openBlock, createElementBlock, createElementVNode, normalizeStyle, unref, withDirectives, renderSlot, vShow, Fragment, renderList, normalizeClass, createCommentVNode, toDisplayString } from "vue";
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
@@ -8,23 +8,25 @@ var _export_sfc = (sfc, props) => {
   return target;
 };
 const _hoisted_1 = { class: "yzp-swiper-item" };
-const _hoisted_2 = ["onClick"];
-const _hoisted_3 = { class: "yzp-swiper-item" };
-const _hoisted_4 = {
+const _hoisted_2 = { class: "yzp-swiper-link" };
+const _hoisted_3 = ["onClick"];
+const _hoisted_4 = { class: "yzp-swiper-item" };
+const _hoisted_5 = { class: "yzp-swiper-link" };
+const _hoisted_6 = {
   key: 0,
   class: "yzp-swiper-btn"
 };
-const _hoisted_5 = {
+const _hoisted_7 = {
   key: 1,
   class: "yzp-swiper-text"
 };
-const _hoisted_6 = { class: "yzp-swiper-title" };
-const _hoisted_7 = { class: "yzp-swiper-index" };
-const _hoisted_8 = {
+const _hoisted_8 = { class: "yzp-swiper-title" };
+const _hoisted_9 = { class: "yzp-swiper-index" };
+const _hoisted_10 = {
   key: 2,
   class: "yzp-swiper-dots"
 };
-const _hoisted_9 = { class: "yzp-swiper-dots-list" };
+const _hoisted_11 = { class: "yzp-swiper-dots-list" };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   props: {
     list: { default: () => [] },
@@ -153,10 +155,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           class: "yzp-swiper-list"
         }, [
           withDirectives(createElementVNode("li", _hoisted_1, [
-            createElementVNode("div", {
-              class: "yzp-swiper-link",
-              style: normalizeStyle({ background: `url(${__props.list[__props.list.length - 1].url}) no-repeat center` })
-            }, null, 4)
+            createElementVNode("div", _hoisted_2, [
+              renderSlot(_ctx.$slots, "swiperItem", {
+                item: __props.list[__props.list.length - 1]
+              }, void 0, true)
+            ])
           ], 512), [
             [vShow, unref(swiperConfig).width]
           ]),
@@ -168,23 +171,23 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }, [
               createElementVNode("div", {
                 class: "yzp-swiper-link",
-                style: normalizeStyle({ background: `url(${item.url}) no-repeat center` }),
                 onClick: ($event) => onItemClick(item)
               }, [
                 renderSlot(_ctx.$slots, "swiperItem", { item }, void 0, true)
-              ], 12, _hoisted_2)
+              ], 8, _hoisted_3)
             ], 4);
           }), 128)),
-          withDirectives(createElementVNode("li", _hoisted_3, [
-            createElementVNode("div", {
-              class: "yzp-swiper-link",
-              style: normalizeStyle({ background: `url(${__props.list[0].url}) no-repeat center` })
-            }, null, 4)
+          withDirectives(createElementVNode("li", _hoisted_4, [
+            createElementVNode("div", _hoisted_5, [
+              renderSlot(_ctx.$slots, "swiperItem", {
+                item: __props.list[0]
+              }, void 0, true)
+            ])
           ], 512), [
             [vShow, unref(swiperConfig).width]
           ])
         ], 4),
-        __props.showArrow && !_ctx.$slots.swiperCustomButton ? (openBlock(), createElementBlock("div", _hoisted_4, [
+        __props.showArrow && !_ctx.$slots.swiperCustomButton ? (openBlock(), createElementBlock("div", _hoisted_6, [
           createElementVNode("div", {
             class: normalizeClass([{ hasBtnSlot: !!_ctx.$slots.swiperLeftButton }, "yzp-swiper-left"]),
             onClick: prev
@@ -199,12 +202,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ], 2)
         ])) : createCommentVNode("", true),
         renderSlot(_ctx.$slots, "swiperCustomButton", {}, void 0, true),
-        __props.showTitle && !__props.showDots ? (openBlock(), createElementBlock("div", _hoisted_5, [
-          createElementVNode("span", _hoisted_6, toDisplayString(__props.list[unref(swiperConfig).index].title || "-"), 1),
-          createElementVNode("span", _hoisted_7, toDisplayString(unref(swiperConfig).index + 1) + " / " + toDisplayString(__props.list.length), 1)
+        __props.showTitle && !__props.showDots ? (openBlock(), createElementBlock("div", _hoisted_7, [
+          createElementVNode("span", _hoisted_8, toDisplayString(__props.list[unref(swiperConfig).index].title || "-"), 1),
+          createElementVNode("span", _hoisted_9, toDisplayString(unref(swiperConfig).index + 1) + " / " + toDisplayString(__props.list.length), 1)
         ])) : createCommentVNode("", true),
-        __props.showDots ? (openBlock(), createElementBlock("div", _hoisted_8, [
-          createElementVNode("ul", _hoisted_9, [
+        __props.showDots ? (openBlock(), createElementBlock("div", _hoisted_10, [
+          createElementVNode("ul", _hoisted_11, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(__props.list, (dot, i) => {
               return openBlock(), createElementBlock("li", {
                 key: `dot-${i}`,
@@ -217,7 +220,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-520f46f2"]]);
+var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-195925c4"]]);
 if (typeof window !== "undefined" && window.Vue) {
   window.Vue.createApp({}).component("vue3-easy-swiper", Vue3EasySwiper);
 }

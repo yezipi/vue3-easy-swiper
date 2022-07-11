@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import Vue3EasySwiper from '../lib/index.vue'
 // import { vueEasySwiperGlobal } from 'vue3-easy-swiper'
 
-const list = [
+const list = ref([
   {
     url: 'http://pic1.win4000.com/wallpaper/3/57ac4130c083a_270_185.jpg',
     title: '广西防城港簕山古渔村'
@@ -19,7 +20,14 @@ const list = [
     url: 'http://pic1.win4000.com/wallpaper/7/57a972bf6304d_270_185.jpg',
     title: '凤凰古城旅游风景'
   },
-]
+])
+
+setTimeout(() => {
+  list.value = [{
+    url: 'http://yangpin.shop/file202204cdfebdccb1797036.png',
+    title: 'test'
+  }]
+}, 3000);
 </script>
 
 <template>
