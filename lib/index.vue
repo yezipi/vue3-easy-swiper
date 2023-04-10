@@ -83,10 +83,17 @@ const translateX = computed(() => {
   return -width - (index * width)
 })
 
+const items = ref(props.list)
+
+watch(() => props.list, (val) => {
+  swiperConfig.index = 0
+  items.value = val
+})
+
 // 监听索引改变
 watch(() => swiperConfig.index, (index: number) => {
   const { width, direction } = swiperConfig
-  const len = props.list.length
+  const len = items.value.length
   const duration = props.duration
   const isNextEnd = (index === 0) && direction === 'next'
   const isPrevEnd = (index === len - 1) && direction === 'prev'
@@ -129,7 +136,7 @@ watch(() => swiperConfig.index, (index: number) => {
 
 // 循环
 const loop = (type: string) => {
-  swiperConfig.index = type == 'next' ? 0 : props.list.length - 1
+  swiperConfig.index = type == 'next' ? 0 : items.value.length - 1
 }
 
 // 往左
@@ -140,8 +147,7 @@ const next = () => {
   }
   noAnimated.value = false
   swiperConfig.index++
-  // FIXED: J 修复轮播过程中修改数据源时索引超出数据源长度错误
-  if (swiperConfig.index >= props.list.length) {
+  if (swiperConfig.index >= items.value.length) {
     loop('next')
   }
 }
@@ -180,7 +186,7 @@ const onItemClick = ((e: SwiperItemConfig) => {
 })
 
 onMounted(() => {
-  if (props.list.length) {
+  if (items.value.length) {
     setTimeout(() => {
       swiperConfig.width = swiperRefs.value.clientWidth
       start()
@@ -191,7 +197,7 @@ onMounted(() => {
 
 <template>
   <div
-    v-if="list.length"
+    v-if="items.length"
     ref="swiperRefs"
     class="yzp-swiper-wrap"
     @mouseover="stop"
@@ -206,11 +212,11 @@ onMounted(() => {
     >
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
-          <slot name="swiperItem" :item="list[list.length -1]"></slot>
+          <slot name="swiperItem" :item="items[items.length -1]"></slot>
         </div>
       </li>
       <li
-        v-for="(item, index) in list"
+        v-for="(item, index) in items"
         :style="{ 'z-index': -index }"
         :key="index"
         class="yzp-swiper-item"
@@ -221,7 +227,7 @@ onMounted(() => {
       </li>
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
-          <slot name="swiperItem" :item="list[0]"></slot>
+          <slot name="swiperItem" :item="items[0]"></slot>
         </div>
       </li>
     </ul>
@@ -243,8 +249,8 @@ onMounted(() => {
 
     <!--swiper title-->
     <div v-if="showTitle && !showDots" class="yzp-swiper-text">
-      <span class="yzp-swiper-title">{{ list[swiperConfig.index].title || '-' }}</span>
-      <span class="yzp-swiper-index">{{ swiperConfig.index + 1 }} / {{ list.length }}</span>
+      <span class="yzp-swiper-title">{{ items[swiperConfig.index].title || '-' }}</span>
+      <span class="yzp-swiper-index">{{ swiperConfig.index + 1 }} / {{ items.length }}</span>
     </div>
     <!--end swiper title-->
 
@@ -252,7 +258,7 @@ onMounted(() => {
     <div v-if="showDots" class="yzp-swiper-dots">
       <ul class="yzp-swiper-dots-list">
         <li
-          v-for="(dot, i) in list"
+          v-for="(dot, i) in items"
           :key="`dot-${i}`"
           :class="{ active: swiperConfig.index === i }"
           class="yzp-swiper-dots-item"
