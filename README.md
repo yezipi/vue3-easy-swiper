@@ -15,7 +15,7 @@ npm i vue3-easy-swiper --save
 
 ## [github](https://github.com/yezipi/vue3-easy-swiper)
 ## [my blog](https://yezipi.net)
-## in components
+## components
 
 ```javascript
 import { Vue3EasySwiper } from 'vue3-easy-swiper'
@@ -39,7 +39,7 @@ const list = [
 </vue3-easy-swiper>
 ```
 
-## in main.ts
+## main.ts
 
 ```javascript
 import { createApp } from 'vue'
