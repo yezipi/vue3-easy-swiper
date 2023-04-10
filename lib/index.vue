@@ -140,7 +140,8 @@ const next = () => {
   }
   noAnimated.value = false
   swiperConfig.index++
-  if (swiperConfig.index === props.list.length) {
+  // FIXED: J 修复轮播过程中修改数据源时索引超出数据源长度错误
+  if (swiperConfig.index >= props.list.length) {
     loop('next')
   }
 }
