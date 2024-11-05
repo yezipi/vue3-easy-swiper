@@ -212,7 +212,8 @@ onMounted(() => {
     >
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
-          <slot name="swiperItem" :item="items[items.length -1]"></slot>
+          <slot v-if="$slots.swiperItem" name="swiperItem" :item="items[items.length -1]"></slot>
+          <img v-else :src="items[items.length -1].url" class="yzp-swiper-img" />
         </div>
       </li>
       <li
@@ -222,12 +223,14 @@ onMounted(() => {
         class="yzp-swiper-item"
       >
         <div class="yzp-swiper-link" @click="onItemClick(item)">
-          <slot name="swiperItem" :item="item"></slot>
+          <slot v-if="$slots.swiperItem" name="swiperItem" :item="item"></slot>
+          <img v-else :src="item.url" class="yzp-swiper-img" />
         </div>
       </li>
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
-          <slot name="swiperItem" :item="items[0]"></slot>
+          <slot v-if="$slots.swiperItem" name="swiperItem" :item="items[0]"></slot>
+          <img v-else :src="items[0].url" class="yzp-swiper-img" />
         </div>
       </li>
     </ul>
@@ -243,7 +246,7 @@ onMounted(() => {
         <slot name="swiperRightButton"></slot>
       </div>
     </div>
-    <!--自定义箭头按钮-->
+    <!--customer arrow-->
     <slot name="swiperCustomButton"></slot>
     <!--end swiper btn-->
 
