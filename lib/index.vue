@@ -213,7 +213,7 @@ onMounted(() => {
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
           <slot v-if="$slots.swiperItem" name="swiperItem" :item="items[items.length -1]"></slot>
-          <img v-else :src="items[items.length -1].url" class="yzp-swiper-img" />
+          <img v-if="!$slots.swiperItem && items[items.length -1].url" :src="items[items.length -1].url" class="yzp-swiper-img" />
         </div>
       </li>
       <li
@@ -224,13 +224,13 @@ onMounted(() => {
       >
         <div class="yzp-swiper-link" @click="onItemClick(item)">
           <slot v-if="$slots.swiperItem" name="swiperItem" :item="item"></slot>
-          <img v-else :src="item.url" class="yzp-swiper-img" />
+          <img v-if="!$slots.swiperItem && item.url" :src="item.url" class="yzp-swiper-img" />
         </div>
       </li>
       <li v-show="swiperConfig.width" class="yzp-swiper-item">
         <div class="yzp-swiper-link">
           <slot v-if="$slots.swiperItem" name="swiperItem" :item="items[0]"></slot>
-          <img v-else :src="items[0].url" class="yzp-swiper-img" />
+          <img v-if="!$slots.swiperItem && items[0].url" :src="items[0].url" class="yzp-swiper-img" />
         </div>
       </li>
     </ul>
@@ -251,7 +251,7 @@ onMounted(() => {
     <!--end swiper btn-->
 
     <!--swiper title-->
-    <div v-if="showTitle && !showDots" class="yzp-swiper-text">
+    <div v-if="showTitle && !showDots && items[swiperConfig.index].title" class="yzp-swiper-text">
       <span class="yzp-swiper-title">{{ items[swiperConfig.index].title || '-' }}</span>
       <span class="yzp-swiper-index">{{ swiperConfig.index + 1 }} / {{ items.length }}</span>
     </div>
