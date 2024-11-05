@@ -8,7 +8,7 @@
     "lib"
   ],
   "description": "a easy vue3 loop swiper plugin",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "./dist/index.es.js",
   "typings": "./lib/typings/index.d.ts",
   "repository": {
