@@ -19,19 +19,27 @@ npm i vue3-easy-swiper --save
 
 ```javascript
 import { Vue3EasySwiper } from 'vue3-easy-swiper'
+
+// if in nuxt3 this style should be imported in the style section
 import 'vue3-easy-swiper/dist/style'
 
-// url and title must is required
+// the url filed is useing on img src of default slot
 const list = [
   {
     url: 'http://pic1.win4000.com/wallpaper/3/57ac4130c083a_270_185.jpg',
-    title: '标题1'
+    title: 'this is some title',
+    color: 'red',
   },
   {
     url: 'http://pic1.win4000.com/wallpaper/5/577e17894c4c7_270_185.jpg',
-    title: '标题2'
+    title: 'this is title2'
   },
 ]
+
+// if use default slot, the url field is required, default show img tag
+<vue3-easy-swiper :list="list" style="width: 500px;height:300px"></vue3-easy-swiper>
+
+// if use slot, you should set width and height of the container
 <vue3-easy-swiper :list="list" style="width: 500px;height:300px">
   <template #swiperItem="{ item }">
     <img :src="item.url" style="width: 100%;height: 100%;" />
@@ -60,7 +68,7 @@ app.mount('#app')
 | autoplay      | 是否自动轮播             | true |
 | interval      | 每两次隔多久滚动一次     | 3000 |
 | duration      | 每次滚动一页需要多久时间 | 300  |
-| showDots | 是否显示轮播的那个点     | true |
+| showDots | 是否显示轮播的那个点     | false |
 | showTitle | 是否显示底部标题     | true |
 | showArrow | 是否显示轮播左右箭头     | true |
 | direction | 滚动方向, prev：往右滚动，next：往左滚动    | next |
