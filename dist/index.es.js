@@ -56,9 +56,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const { width, index } = swiperConfig;
       return -width - index * width;
     });
+    const items = ref(props.list);
+    watch(() => props.list, (val) => {
+      swiperConfig.index = 0;
+      items.value = val;
+    });
     watch(() => swiperConfig.index, (index) => {
       const { width, direction } = swiperConfig;
-      const len = props.list.length;
+      const len = items.value.length;
       const duration = props.duration;
       const isNextEnd = index === 0 && direction === "next";
       const isPrevEnd = index === len - 1 && direction === "prev";
@@ -90,7 +95,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit("change", index);
     });
     const loop = (type) => {
-      swiperConfig.index = type == "next" ? 0 : props.list.length - 1;
+      swiperConfig.index = type == "next" ? 0 : items.value.length - 1;
     };
     const next = () => {
       swiperConfig.direction = "next";
@@ -99,7 +104,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       noAnimated.value = false;
       swiperConfig.index++;
-      if (swiperConfig.index === props.list.length) {
+      if (swiperConfig.index >= items.value.length) {
         loop("next");
       }
     };
@@ -131,7 +136,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit("click", e);
     };
     onMounted(() => {
-      if (props.list.length) {
+      if (items.value.length) {
         setTimeout(() => {
           swiperConfig.width = swiperRefs.value.clientWidth;
           start();
@@ -139,7 +144,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     });
     return (_ctx, _cache) => {
-      return __props.list.length ? (openBlock(), createElementBlock("div", {
+      return items.value.length ? (openBlock(), createElementBlock("div", {
         key: 0,
         ref_key: "swiperRefs",
         ref: swiperRefs,
@@ -157,13 +162,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           withDirectives(createElementVNode("li", _hoisted_1, [
             createElementVNode("div", _hoisted_2, [
               renderSlot(_ctx.$slots, "swiperItem", {
-                item: __props.list[__props.list.length - 1]
+                item: items.value[items.value.length - 1]
               }, void 0, true)
             ])
           ], 512), [
             [vShow, unref(swiperConfig).width]
           ]),
-          (openBlock(true), createElementBlock(Fragment, null, renderList(__props.list, (item, index) => {
+          (openBlock(true), createElementBlock(Fragment, null, renderList(items.value, (item, index) => {
             return openBlock(), createElementBlock("li", {
               style: normalizeStyle({ "z-index": -index }),
               key: index,
@@ -180,7 +185,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           withDirectives(createElementVNode("li", _hoisted_4, [
             createElementVNode("div", _hoisted_5, [
               renderSlot(_ctx.$slots, "swiperItem", {
-                item: __props.list[0]
+                item: items.value[0]
               }, void 0, true)
             ])
           ], 512), [
@@ -203,12 +208,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         ])) : createCommentVNode("", true),
         renderSlot(_ctx.$slots, "swiperCustomButton", {}, void 0, true),
         __props.showTitle && !__props.showDots ? (openBlock(), createElementBlock("div", _hoisted_7, [
-          createElementVNode("span", _hoisted_8, toDisplayString(__props.list[unref(swiperConfig).index].title || "-"), 1),
-          createElementVNode("span", _hoisted_9, toDisplayString(unref(swiperConfig).index + 1) + " / " + toDisplayString(__props.list.length), 1)
+          createElementVNode("span", _hoisted_8, toDisplayString(items.value[unref(swiperConfig).index].title || "-"), 1),
+          createElementVNode("span", _hoisted_9, toDisplayString(unref(swiperConfig).index + 1) + " / " + toDisplayString(items.value.length), 1)
         ])) : createCommentVNode("", true),
         __props.showDots ? (openBlock(), createElementBlock("div", _hoisted_10, [
           createElementVNode("ul", _hoisted_11, [
-            (openBlock(true), createElementBlock(Fragment, null, renderList(__props.list, (dot, i) => {
+            (openBlock(true), createElementBlock(Fragment, null, renderList(items.value, (dot, i) => {
               return openBlock(), createElementBlock("li", {
                 key: `dot-${i}`,
                 class: normalizeClass([{ active: unref(swiperConfig).index === i }, "yzp-swiper-dots-item"])
@@ -220,7 +225,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-195925c4"]]);
+var Vue3EasySwiper = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-6345580d"]]);
 if (typeof window !== "undefined" && window.Vue) {
   window.Vue.createApp({}).component("vue3-easy-swiper", Vue3EasySwiper);
 }
