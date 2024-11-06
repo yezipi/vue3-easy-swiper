@@ -135,12 +135,12 @@ watch(() => swiperConfig.index, (index: number) => {
 })
 
 // 循环
-const loop = (type: string) => {
+function loop(type: string) {
   swiperConfig.index = type == 'next' ? 0 : items.value.length - 1
 }
 
 // 往左
-const next = () => {
+function next() {
   swiperConfig.direction = 'next'
   if (isAnimating.value) {
     return
@@ -153,7 +153,7 @@ const next = () => {
 }
 
 // 往右
-const prev = () => {
+function prev() {
   swiperConfig.direction = 'prev'
   if (isAnimating.value) {
     return
@@ -165,14 +165,14 @@ const prev = () => {
   }
 }
 
-const stop = () => {
+function stop() {
   if (props.autoplay) {
     clearInterval(swiperConfig.inter)
   }
 }
 
 // 初始化
-const start = () => {
+function start() {
   if (props.autoplay) {
     clearInterval(swiperConfig.inter)
     swiperConfig.inter = setInterval(() => {
