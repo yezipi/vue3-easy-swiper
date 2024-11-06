@@ -3,6 +3,9 @@
 *   基于 Vue3.0 + ts 开发
 *   轻量、简易，支持无缝轮播
 
+## Usage
+You can view more from examples/App.vue
+
 ## Install
 
 ```javascript
@@ -32,7 +35,8 @@ const list = [
   },
   {
     url: 'http://pic1.win4000.com/wallpaper/5/577e17894c4c7_270_185.jpg',
-    title: 'this is title2'
+    title: 'this is title2',
+    color: 'green',
   },
 ]
 
@@ -83,7 +87,7 @@ app.mount('#app')
 | 插槽名称          | 说明                     | 返回值 |
 | ------------- | ------------------------ | ---- |
 | swiperItem      | 在每一项里面的内容 | 返回item |
-| swiperCustomButton      | 自定义按钮，会覆盖默认按钮，也可以说是循环内容之外的额外内容 | 无 |
+| swiperCustom      | 自定义覆盖内容 | 无 |
 | swiperLeftButton      | 左边自定义按钮 | 无 |
 | swiperRightButton      |右边自定义按钮 | 无 |
 

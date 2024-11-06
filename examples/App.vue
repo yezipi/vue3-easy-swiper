@@ -25,7 +25,7 @@ const list = ref([
   {
     url: 'https://yezipi.oss-cn-beijing.aliyuncs.com/blog/cover/yezipi_1661961859446.jpg?x-oss-process=image/resize,w_150',
     title: '凤凰古城旅游风景',
-    color: 'darkblue',
+    color: 'darkgoldenrod',
   },
 ])
 
@@ -62,7 +62,7 @@ function onSwiperChange(index: number)  {
 }
 
 function onItemClick(item: any) {
-  currItem.value = item
+  alert(item.title)
 }
 
 </script>
@@ -88,7 +88,10 @@ function onItemClick(item: any) {
       @click="onItemClick"
     >
       <template #swiperItem="{ item }">
-        <div :style="{ background: item.color, height: '100%' }">{{ item }}</div>
+        <div :style="{ background: item.color, height: '100%' }">{{ item.title }}</div>
+      </template>
+      <template #swiperCustom>
+        <div class="custom-box">this is custom mask</div>
       </template>
     </vue3-easy-swiper>
     
@@ -118,4 +121,13 @@ function onItemClick(item: any) {
   display: flex; justify-content: center;margin-top: 20px;
 }
 .demo-btn button { margin: 0 30px; }
+.custom-box {
+  width: 300px;
+  height: 50px;
+  background: #fff;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

@@ -236,7 +236,7 @@ onMounted(() => {
     </ul>
     <!--swiper btn-->
     <div
-      v-if="showArrow && !$slots.swiperCustomButton"
+      v-if="showArrow"
       class="yzp-swiper-btn"
     >
       <div :class="{ hasBtnSlot: !!$slots.swiperLeftButton }" class="yzp-swiper-left" @click="prev">
@@ -246,9 +246,9 @@ onMounted(() => {
         <slot name="swiperRightButton"></slot>
       </div>
     </div>
-    <!--customer arrow-->
-    <slot name="swiperCustomButton"></slot>
-    <!--end swiper btn-->
+    <!--customer-->
+    <slot name="swiperCustom"></slot>
+    <!--end customer-->
 
     <!--swiper title-->
     <div v-if="showTitle && !showDots && items[swiperConfig.index].title" class="yzp-swiper-text">
@@ -273,6 +273,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.yzp-swiper-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .yzp-swiper-wrap .yzp-swiper-btn > div {
   display: flex;
   align-items: center;
