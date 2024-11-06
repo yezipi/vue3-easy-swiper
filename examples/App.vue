@@ -122,12 +122,7 @@ function onItemClick(item: any) {
 }
 .demo-btn button { margin: 0 30px; }
 .custom-box {
-  width: 300px;
-  height: 50px;
   background: #fff;
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>

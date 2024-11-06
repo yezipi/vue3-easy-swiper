@@ -48,6 +48,9 @@ const list = [
   <template #swiperItem="{ item }">
     <img :src="item.url" style="width: 100%;height: 100%;" />
   </template>
+  <template #swiperCustom>
+    <div class="custom-box" style="position: absolute; background: #fff">this is custom mask</div>
+  </template>
 </vue3-easy-swiper>
 ```
 
