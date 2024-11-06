@@ -8,12 +8,12 @@
     "lib"
   ],
   "description": "a easy vue3 loop swiper plugin",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "main": "./dist/index.es.js",
   "typings": "./lib/typings/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yezipi/vue3-easy-swiper"
+    "url": "git+https://github.com/yezipi/vue3-easy-swiper.git"
   },
   "keywords": [
     "swiper",
