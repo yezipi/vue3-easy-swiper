@@ -22,9 +22,7 @@ npm i vue3-easy-swiper --save
 
 ```javascript
 import { Vue3EasySwiper } from 'vue3-easy-swiper'
-
-// if in nuxt3 this style should be imported in the style section
-import 'vue3-easy-swiper/dist/style'
+import 'vue3-easy-swiper/dist/style.css'
 
 // the url filed is useing on img src of default slot
 const list = [
