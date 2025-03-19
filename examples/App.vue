@@ -1,12 +1,16 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import Vue3EasySwiper from '../lib/index.vue'
+import Vue3EasySwiper, { type SwiperItemConfig } from '../lib/index.vue'
 // import { vueEasySwiperGlobal } from 'vue3-easy-swiper'
+
+interface CustomerItemConfig extends SwiperItemConfig {
+  color: string
+}
 
 const currIndex = ref(0)
 const currItem = ref<any>({})
 
-const list = ref([
+const list = ref<CustomerItemConfig[]>([
   {
     url: 'https://www.xrhhg.com/upfile/2015/03/31/20150331093017_583.jpg',
     title: '广西防城港簕山古渔村',
@@ -87,7 +91,7 @@ function onItemClick(item: any) {
       @change="onSwiperChange"
       @click="onItemClick"
     >
-      <template #swiperItem="{ item }">
+      <template #swiperItem="{ item }: { item: CustomerItemConfig }">
         <div :style="{ background: item.color, height: '100%' }">{{ item.title }}</div>
       </template>
       <template #swiperCustom>

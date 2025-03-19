@@ -3,7 +3,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted, watch, computed } from 'vue'
 
-interface SwiperItemConfig {
+export interface SwiperItemConfig {
   title?: string,
   url?: string,
   id?: string,
@@ -11,7 +11,7 @@ interface SwiperItemConfig {
 }
 
 interface Props {
-  list: Array<SwiperItemConfig>
+  list: Array<SwiperItemConfig | any>,
   duration?: number,
   interval?: number,
   autoplay?: boolean,
